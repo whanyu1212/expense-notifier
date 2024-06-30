@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "expense_notify"
+version = "0.1.0"
+description = "Extracts expense data stored in notion, interprets it using LLM Agent and triggers a periodic notification"
+authors = ["hy"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+langchain = "^0.2.6"
+langchain-community = "^0.2.6"
+langchain-experimental = "^0.0.62"
+ipykernel = "^6.29.4"
+python-dotenv = "^1.0.1"
+bs4 = "^0.0.2"
+notion-client = "^2.2.1"
+pandas = "^2.2.2"
+pytest = "^8.2.2"
+black = "^24.4.2"
+isort = "^5.13.2"
+flake8 = "^7.1.0"
+docformatter = "^1.7.5"
+pre-commit = "^3.7.1"
+langchain-openai = "^0.1.13"
+tabulate = "^0.9.0"
+google-auth = "^2.30.0"
+google-auth-oauthlib = "^1.2.0"
+google-auth-httplib2 = "^0.2.0"
+google-api-python-client = "^2.135.0"
+pywhatkit = "^5.4"
+
+[tool.poetry.dev-dependencies]
+[tool.semantic_release]
+version_toml = [
+    "pyproject.toml:tool.poetry.version",
+]                                                    # version location
+branch = "main"                                      # branch to make releases of
+changelog_file = "CHANGELOG.md"                      # changelog file
+build_command = "pip install poetry && poetry build" # build dists 
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
