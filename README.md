@@ -2,15 +2,40 @@
 
 Extracts expense data stored in notion, interprets it using LLM Agent and triggers a periodic notification
 
+## Workflow
+
+```mermaid
+graph LR
+    A[Start] -->|Establish Connection| B{Connect to NotionDB}
+    B -->|Load Metadata| C[NotionDataLoader: Load and Process Metadata]
+    C -->|Analyze Data| D[DataFrameAnalyzer: Analyze Data]
+    D -->|Prepare Message| E[Send Telegram Message]
+    E -->|Complete Process| F[End]
+    
+    style A fill:#f9f,stroke:#333,stroke-width:4px
+    style B fill:#bbf,stroke:#333,stroke-width:4px
+    style C fill:#bbf,stroke:#333,stroke-width:4px
+    style D fill:#bbf,stroke:#333,stroke-width:4px
+    style E fill:#bbf,stroke:#333,stroke-width:4px
+    style F fill:#f9f,stroke:#333,stroke-width:4px
+
+```
+
 ## Installation
 
-```bash
+<!-- ```bash
 $ pip install expense_notify
-```
+``` -->
 
 ## Usage
 
-- TODO
+placebolder
+
+
+## TODO
+- [ ] Work on tests and refactoring
+- [ ] Set up CICD
+- [ ] Documentation
 
 ## Contributing
 
