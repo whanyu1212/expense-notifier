@@ -24,8 +24,7 @@ class DataFrameAnalyzer:
     def analyze(self):
         agent = self.initialize_agent()
         result = agent.invoke(
-            """Analyze the expenses for the past 7 days. Provide the total expenses and expenses by category
-            and what are the big ticket items relative to the total expenses."""
+            """Analyze the expenses for the past 7 days. Provide the total expenses and expenses by category."""
         )
         return result["output"]
 
