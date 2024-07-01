@@ -2,7 +2,7 @@ name: run main.py
 
 on:
   schedule:
-    - cron: '0 0 * * 1' # At 00:00 on Monday
+    - cron: '0 2 * * 1'
 
 jobs:
   build:
@@ -26,6 +26,12 @@ jobs:
           poetry install
           
       - name: execute py script
+        env:
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          NOTION_DB_ID: ${{ secrets.NOTION_DB_ID }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           poetry run python src/scripts/run_workflow.py
         continue-on-error: true # Optional: continue to the next step even if this step fails
